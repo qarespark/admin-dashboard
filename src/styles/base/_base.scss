@@ -1,0 +1,36 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  background-color: #f9fafb;
+  overflow: inherit !important;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  transition: all ease-out 0.3s;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  font-family: var(--primary-font);
+  @include hide-scrollbar;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: var(--primary-font);
+  // color: #303641;
+  // transition: all ease-out 0.3s;
+  font-weight: 400;
+}
+
+.MuiSnackbar-anchorOriginTopCenter {
+  top: 140px !important;
+}

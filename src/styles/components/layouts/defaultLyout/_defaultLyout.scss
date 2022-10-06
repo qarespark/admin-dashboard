@@ -1,0 +1,16 @@
+.layout-wrapper {
+  width: 100%;
+  margin: auto;
+  min-height: 100vh;
+  transition: all ease-out 0.4s;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  .layout-sidebar-wrap {
+    background-color: white;
+    width: 6%;
+  }
+  .layout-content-wrap {
+    width: 94%;
+  }
+}

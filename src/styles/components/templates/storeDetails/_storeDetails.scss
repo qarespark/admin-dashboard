@@ -1,0 +1,80 @@
+.store-details-wrap {
+  position: relative;
+  .store-selection-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 7;
+    box-shadow: 0px 0px 8px 0px rgb(222 225 236 / 56%);
+    padding: 0 0px 0 10px;
+
+    .label {
+      width: 200px;
+      font-size: 14px;
+    }
+    .input-wrap {
+      padding: unset;
+      width: 35%;
+    }
+  }
+  .store-details-content {
+    transition: all ease-out 0.3s;
+    &.active-tab {
+      padding: 10px;
+      background: #04c8c80f;
+      border-radius: 4px;
+      border: 1px solid rgb(234 244 245);
+      box-shadow: 0px 0px 20px 0px rgb(76 87 125 / 2%);
+      transition: all ease-out 0.3s;
+      margin: 10px 0;
+    }
+    &.tab-wrap {
+      margin-bottom: 10px;
+      position: sticky;
+      top: 0;
+      bottom: 0px;
+      left: 0;
+      right: 0;
+      width: 100%;
+      z-index: 7;
+    }
+    &.store-tab-wrap {
+      z-index: 6;
+    }
+    &.license-tab-wrap {
+      z-index: 5;
+    }
+    &.staff-tab-wrap {
+      z-index: 4;
+    }
+    &.config-tab-wrap {
+      z-index: 3;
+    }
+    &.SMS-tab-wrap {
+      z-index: 2;
+    }
+    &.payment-tab-wrap {
+      z-index: 1;
+    }
+    &.license-content {
+      .config-input-wrap {
+        width: auto;
+        margin-left: 30px;
+        padding: 10px !important;
+        .checkbox-input-heading {
+          font-family: "poppins-regular";
+          color: rgba(0, 0, 0, 0.8705882353);
+          font-size: 13px;
+          padding-left: 10px;
+          padding-bottom: unset;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+.common-modal-wrap {
+  z-index: 10 !important;
+  border-radius: 5px;
+  transition: all 0.3s ease-in;
+  .modal-content-wrap {
+    height: 0;
+  }
+  .footer-btn-wrap {
+    padding: unset;
+    border: unset;
+  }
+  .details-row {
+    flex-wrap: wrap;
+    .details-col {
+      width: 48%;
+      margin-right: unset !important;
+      margin-bottom: 10px;
+    }
+  }
+}

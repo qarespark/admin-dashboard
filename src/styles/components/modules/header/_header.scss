@@ -1,0 +1,374 @@
+// @import 'app.scss';
+
+.mainheaderblock {
+  width: 100%;
+  float: left;
+  background-color: rgb(255 255 255 / 96%);
+  height: 75px;
+  padding: 5px;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 7;
+  box-shadow: rgb(4 17 29 / 25%) 0px 0px 8px 0px;
+  backdrop-filter: saturate(180%) blur(7px);
+  max-width: 480px;
+}
+
+.logo {
+  width: 35%;
+  height: 55px;
+  float: left;
+  margin: 7px 0 0 5px;
+  // width: 35%;
+  // float: left;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  // text-align: center;
+}
+.back-navigation {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 30px;
+  &:active {
+    color: var(--primary-color);
+  }
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+.logo img {
+  height: 100%;
+  width: 100%;
+  max-width: 100%;
+}
+
+.callheader {
+  float: right;
+  margin-right: 20px;
+  margin-top: 10px;
+  width: 30px;
+  height: 30px;
+}
+.callimg {
+  // width: 28px;
+  // height: 28px;
+  // margin-top: 6px;
+}
+.searchicon {
+  width: 20px;
+  height: 20px;
+  float: right;
+  margin-right: 13px;
+  margin-top: 21px;
+  img {
+    width: 100%;
+  }
+}
+
+.selmalefemale img {
+  width: 100%;
+  height: 100%;
+  transition: all ease-out 0.3s;
+}
+
+.selmalefemale button.MuiButton-text {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  min-width: auto;
+  transition: all ease-out 0.3s;
+}
+
+.gender-wrap-outer {
+  width: 100%;
+  float: left;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  padding-left: 14px;
+  // margin: 20px 0;
+  margin-bottom: 10px;
+  // background-color: #f8d8e5;
+  .selmalefemale {
+    width: fit-content !important;
+    height: auto;
+    margin-right: 15px;
+    margin-top: 0;
+    transition: all ease-out 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    padding: 8px 10px;
+    background: white;
+    border: 1px solid #c2c2c2;
+    color: #888;
+    box-shadow: 0px 5px 10px rgb(var(--primary-color) / 28%);
+    .icon {
+      width: 23px;
+      height: 23px;
+      svg {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .name {
+      font-size: 14px;
+      letter-spacing: 0.2px;
+      font-family: var(--primary-font);
+      padding-left: 5px;
+      font-weight: 500;
+    }
+    &.active {
+      background: var(--primary-color);
+      border: 1px solid var(--primary-color);
+      color: white;
+      box-shadow: 0px 5px 10px var(--primary-color-alpha);
+      transition: all ease-out 0.3s;
+      .icon,
+      .name {
+        filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.3));
+      }
+    }
+  }
+}
+
+.hamburger {
+  .MuiSvgIcon-root {
+    font-size: 36px;
+  }
+}
+
+.hamburger span.material-icons.MuiIcon-root {
+  font-size: 41px;
+}
+
+.hamburger .MuiButton-text {
+  padding: 0px 0px;
+  min-width: auto;
+  margin: 0 0 0 0;
+  line-height: normal;
+}
+
+.drawclose {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 999;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #dee1ec;
+  font-size: 12px;
+  border-radius: 20px;
+  color: var(--primary-color);
+  padding: 6px;
+
+  svg {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.logout {
+  color: #7b7b7b;
+  font-size: 18px;
+  text-align: left;
+  width: 100%;
+  padding: 2px 15px 12px 17px;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.00938em;
+}
+.header-nav-wrap {
+  width: 41%;
+  float: right;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  height: 100%;
+  .icon-wrap {
+    margin: 0 6px;
+    width: 30px;
+    padding-left: 3px;
+    img {
+      width: 100%;
+    }
+  }
+  .cart-icon {
+    // background: #dee1ec;
+    // border-radius: 11px;
+    // padding: 7px;
+    // width: 35px;
+    // height: 35px;
+    // display: flex;
+    position: relative;
+    .cart-item-count {
+      position: absolute;
+      right: -12px;
+      top: -13px;
+      background: var(--primary-color);
+      color: white;
+      width: 20px;
+      height: 20px;
+      border-radius: 10px;
+      font-size: 12px;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: var(--primary-font);
+      font-weight: 500;
+      letter-spacing: 0.3px;
+    }
+  }
+  @-webkit-keyframes shake-bubble {
+    20% {
+      transform: scale(1.1);
+    }
+    40% {
+      transform: scale(1.2);
+    }
+    60% {
+      transform: scale(1.1);
+    }
+  }
+  @keyframes shake-bubble {
+    20% {
+      transform: scale(1.1);
+    }
+    40% {
+      transform: scale(1.2);
+    }
+    60% {
+      transform: scale(1.1);
+    }
+  }
+  .shake {
+    -webkit-animation: shake-bubble 0.3s 1 alternate;
+    animation: shake-bubble 0.3s 1 alternate;
+  }
+}
+.hamburger-drawer {
+  .MuiDrawer-paperAnchorRight {
+    width: 75vw;
+  }
+  .drawer-wrap {
+    height: 100vh;
+    overflow: auto;
+    padding: 0 25px;
+    background: #f0f0f0;
+    @include hide-scrollbar;
+
+    .drawgraphic {
+      width: 100%;
+      float: left;
+      text-align: center;
+      margin-bottom: 5px;
+      margin-top: 15px;
+      height: 25vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .drawer-display-img {
+        width: 125px;
+        filter: drop-shadow(0px 0px 6px rgba(0, 0, 0, 0.1));
+        height: 125px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        img {
+          width: 100%;
+        }
+      }
+    }
+    .user-details {
+      float: left;
+      width: 100%;
+      padding-bottom: 15px;
+      // border-bottom: 1px solid #ebedf0;
+      .name {
+        width: 100%;
+        float: left;
+        text-align: center;
+        font-size: 15px;
+        color: var(--primary-color);
+        font-weight: 700;
+        font-family: var(--primary-font);
+        letter-spacing: 0.2px;
+        margin-bottom: 5px;
+        .login-btn {
+          color: var(--primary-color);
+          border: 1px solid #fbfbfb;
+          box-shadow: 0px 5px 10px #ebedf0;
+          width: 226px;
+          font-size: 16px;
+          letter-spacing: 1px;
+          border-radius: 6px;
+          padding: 10px;
+          background: #fbfbfb;
+        }
+      }
+      .number {
+        width: 100%;
+        float: left;
+        font-family: var(--primary-font);
+        font-size: 15px;
+        font-weight: 500;
+        text-align: center;
+        color: var(--primary-color);
+      }
+    }
+
+    .drawmenu {
+      width: 100%;
+      float: left;
+      text-align: center;
+      .nav-wrap {
+        border-bottom: 1px solid #fbfbfb;
+        padding: 8px 10px;
+        color: #363636;
+        .nav-icon {
+          width: 24px;
+          color: #363636;
+          /* height: 24px; */
+          min-width: unset;
+          padding-right: 5px;
+          margin-right: 10px;
+          svg {
+            width: 100%;
+            height: 100%;
+            &:active {
+              color: var(--primary-color);
+              background-color: var(--primary-color-alpha);
+            }
+          }
+        }
+        .nav-text {
+        }
+        &:active {
+          color: var(--primary-color);
+          background-color: var(--primary-color-alpha);
+          svg {
+            color: var(--primary-color);
+          }
+        }
+      }
+      .MuiListItem-button:hover {
+        background-color: rgba(0, 0, 0, var(--primary-color-alpha));
+      }
+    }
+  }
+}

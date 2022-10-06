@@ -1,0 +1,24 @@
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/functions";
+@import "base/base";
+@import "base/typography";
+@import "base/common";
+@import "components/layouts/defaultLyout/defaultLyout";
+
+// modules styling
+@import "components/modules/header/header";
+@import "components/modules/loader/loader";
+@import "components/modules/sidebar/sidebar";
+@import "components/modules/addRechargeModal/addRechargeModal";
+@import "components/modules/addStoreToGupshupModal/addStoreToGupshupModal";
+
+// templates styling
+@import "components/templates/homePage/homePage";
+@import "components/templates/gupshupDashboard/gupshupDashboard";
+@import "components/templates/onboardingDashboard/onboardingDashboard";
+@import "components/templates/storeDetails/storeDetails";
+@import "components/templates/storeConfigurations/storeConfigurations";
+@import "components/templates/login/login";
+@import "components/templates/genericImages/genericImages";
+@import "components/templates/manifestConfig/manifestConfig";

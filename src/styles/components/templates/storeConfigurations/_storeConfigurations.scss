@@ -1,0 +1,81 @@
+.store-config-wrap {
+  .config-input-wrap .checkbox-input-wrapper .checkbox-input-wrap .label {
+    font-size: 13px !important;
+    font-family: "poppins-regular";
+    color: rgba(0, 0, 0, 0.8705882353);
+    padding-left: 4px;
+    padding-bottom: 3px;
+  }
+  .config-input-wrap {
+    width: auto;
+    margin-left: 0px;
+    padding: 10px !important;
+
+    .checkbox-input-heading {
+      font-family: "poppins-regular";
+      color: rgba(0, 0, 0, 0.8705882353);
+      font-size: 13px;
+      padding-left: 10px;
+      padding-bottom: unset;
+    }
+  }
+  .heading {
+    width: auto;
+    padding-right: 10px;
+    border-bottom: unset;
+    color: #323759;
+    font-size: 14px;
+    letter-spacing: 1px;
+  }
+  .availability-wrap {
+    .element-group {
+      width: 60%;
+      &:not(:last-child) {
+        width: 20%;
+      }
+    }
+  }
+
+  .ui-configs {
+    .element-group {
+      width: 50%;
+      &:not(:last-child) {
+        width: 25%;
+      }
+    }
+    .group-colour-wrapper {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      .group-colour-details {
+        margin-right: 20px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        input {
+          padding: 8px;
+          width: 70px;
+          height: 50px;
+          margin-right: 5px;
+        }
+      }
+    }
+  }
+  .social-links {
+    .element-group {
+      width: 50%;
+      .checkbox-input-wrap {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        .label {
+          padding: 1px;
+        }
+      }
+    }
+  }
+  .active-tab {
+    background: unset !important;
+    padding: unset !important;
+  }
+}

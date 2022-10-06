@@ -1,0 +1,21 @@
+.add-store-to-gupshup-modal-wrap {
+  .element-group-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    .element-group {
+      width: 48%;
+    }
+  }
+  .switch-wrap {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    .label {
+      font-size: 14px;
+      width: auto;
+      padding-left: 10px;
+    }
+  }
+}

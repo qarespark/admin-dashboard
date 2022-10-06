@@ -1,0 +1,18 @@
+$breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+);
+
+$color-error: #ff003d;
+
+:root {
+  --primary-color: #04c8c8;
+  --primary-color-light: #04c8c80f;
+  --primary-font: "poppins-regular";
+  --atlantika: "atlantika";
+  --bringHeart: "bringHeart";
+  --mvboli: "mvboli";
+}
