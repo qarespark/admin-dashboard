@@ -7,7 +7,7 @@ import AlertNotification from 'components/modules/alert';
 import AppRouter from 'router';
 
 const App = () => {
-
+  console.log("process.env", process.env)
   return (
     <Provider store={store}>
       <AlertNotification />
