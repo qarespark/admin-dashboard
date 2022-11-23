@@ -362,10 +362,60 @@ export function getDateStrings(inputDate: any = new Date()) {
   }
 }
 
-export function mergeObjWithoutDuplicates(array1: any[], array2: []) {
-  const updates = Object.fromEntries(array2.map((o: any) => [o.name, o]));
-  const result = array1.map((o: any) => updates[o.name] || o);
-  return result;
+export function mergeArrayWithoutDuplicates(target: any[], source: any[], sourceKey: string) {
+  if (target.length && source.length) {
+    let key = Object.keys(target[0])[0];
+    if (sourceKey == 'socialLinks' || sourceKey == 'typeList') key = "name";
+    if (sourceKey == 'accessControl') key = "uiComponent";
+    return target.concat(source.filter(bo => target.every(ao => ao[key] != bo[key])));
+  } else return source;
+}
+
+const isObject = (obj) => obj && typeof obj === 'object';
+
+export function deepMergeInnerDedupeArrays(target: any, source: any) {
+  Object.keys(source).forEach((key: string) => {
+    const targetValue = target[key];
+    const sourceValue = source[key];
+    if (Array.isArray(targetValue) && Array.isArray(sourceValue)) {
+      target[key] = mergeArrayWithoutDuplicates(targetValue, sourceValue, key);
+    } else if (isObject(targetValue) && Array.isArray(sourceValue)) {
+      target[key] = sourceValue;
+    } else if (Array.isArray(targetValue) && isObject(sourceValue)) {
+      target[key] = sourceValue;
+    } else if (isObject(targetValue) && isObject(sourceValue)) {
+      target[key] = deepMergeInnerDedupeArrays(Object.assign({}, targetValue), sourceValue);
+    } else {
+      target[key] = sourceValue;
+    }
+  });
+  return target;
+}
+
+/**
+ * Performs a deep merge of `source` into `target`.
+ * Mutates `target` only but not its objects and arrays.
+ */
+export function deepMergeObjects(target, source) {
+
+  if (!isObject(target) || !isObject(source)) {
+    return source;
+  }
+
+  Object.keys(source).forEach((key: any) => {
+    const targetValue: any = target[key];
+    const sourceValue: any = source[key];
+
+    if (Array.isArray(targetValue) && Array.isArray(sourceValue)) {
+      target[key] = mergeArrayWithoutDuplicates(targetValue, sourceValue, key);
+    } else if (isObject(targetValue) && isObject(sourceValue)) {
+      target[key] = deepMergeObjects(Object.assign({}, targetValue), sourceValue);
+    } else {
+      target[key] = sourceValue;
+    }
+  });
+
+  return target;
 }
 
 

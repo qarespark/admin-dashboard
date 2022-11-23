@@ -1,7 +1,7 @@
 import { Checkbox, MenuItem, Select, Switch } from '@material-ui/core';
 import Loader from 'components/modules/loader';
 import { emptyConfigObj } from 'constants/emptyModel';
-import { mergeObjWithoutDuplicates } from 'helpers/utils';
+import { mergeArrayWithoutDuplicates } from 'helpers/utils';
 import { useAppDispatch } from 'hooks/useAppDispatch';
 import { useAppSelector } from 'hooks/useAppSelector';
 import React, { forwardRef, useEffect, useImperativeHandle, useState } from 'react'
@@ -53,6 +53,7 @@ const StoreConfigurations = forwardRef((props: any, ref: any) => {
         setBasicConfig({ ...activeConfigurations.storeConfig.basicConfig })
         setUserConfig({ ...activeConfigurations.storeConfig.sparkConfig.userConfig })
         setFilterConfig({ ...activeConfigurations.storeConfig.sparkConfig.filterConfig })
+
     }, [activeConfigurations])
 
     // The component instance will be extended with whatever you return from the callback passed as the second argument
@@ -157,6 +158,9 @@ const StoreConfigurations = forwardRef((props: any, ref: any) => {
                     case 'smsForAppointments':
                         appointmentConfigCopy.smsForAppointments = appointmentConfigCopy.smsForAppointments ? false : true;
                         break;
+                    case 'showExpertAsSalon':
+                        appointmentConfigCopy.showExpertAsSalon = appointmentConfigCopy.showExpertAsSalon ? false : true;
+                        break;
                     case 'reminderBeforeDays':
                         appointmentConfigCopy.reminderBeforeDays = value;
                         break;
@@ -229,7 +233,7 @@ const StoreConfigurations = forwardRef((props: any, ref: any) => {
         const filterConfigCopy = { ...filterConfig }
         if (subType) filterConfigCopy[type][subType][key] = filterConfigCopy[type][subType][key] ? false : true;
         else filterConfigCopy[type][key] = filterConfigCopy[type][key] ? false : true;
-        activeConfigurationsCopy.storeConfig.filterConfig = { ...filterConfigCopy };
+        activeConfigurationsCopy.storeConfig.sparkConfig.filterConfig = { ...filterConfigCopy };
         setActiveConfigurations({ ...activeConfigurationsCopy })
     }
 
@@ -573,6 +577,21 @@ const StoreConfigurations = forwardRef((props: any, ref: any) => {
                                         className={`${error.id == 'reminderBeforeHrs' ? 'error' : ''} input-width`}
                                         value={appointmentConfig.reminderBeforeHrs || ''} onChange={(e) => onChangeValue('reminderBeforeHrs', e.target.value)} placeholder="Enter time" />
                                     {error.id == 'reminderBeforeHrs' && <div className='error tax-name-error'>{error.text}</div>}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className={`element-group-wrap clearfix card ${!appointmentConfig.active && 'disabled'}`}>
+                            <div className='element-group card config-input-wrap'>
+                                <div className="checkbox-input-wrapper">
+                                    <div className="checkbox-input-wrap ckeckbox-wrap">
+                                        <Checkbox
+                                            checked={appointmentConfig.showExpertAsSalon || false}
+                                            onClick={() => onChangeValue('showExpertAsSalon')}
+                                            inputProps={{ 'aria-label': 'controlled' }}
+                                        />
+                                        <div className="label active-label" onClick={() => onChangeValue('showExpertAsSalon')}>Show expert as salon</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

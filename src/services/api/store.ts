@@ -97,3 +97,16 @@ export const getStoresConfigbyTenantIdStoreId = (tenantId, storeId) => {
         });
     })
 }
+
+export const getStoreLicenbyTenantIdStoreId = (tenantId, storeId) => {
+    return new Promise((res, rej) => {
+        APISERVICE.GET(`${process.env.REACT_APP_BASE_PCS_URL}/tenantlic/tenantstore/${tenantId}/${storeId}`).then((response) => {
+            if (response) res(response.data);
+            else res([])
+            // console.log(“response”, response);
+        }).catch(function (error) {
+            rej(error);
+            console.log("error", error);
+        });
+    })
+}

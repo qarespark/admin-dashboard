@@ -164,6 +164,13 @@ export const emptyConfigObj = {
             "index": 2,
             "iconPath": null,
             "active": false
+        },
+        {
+            "name": "google",
+            "url": '',
+            "index": 2,
+            "iconPath": null,
+            "active": false
         }
     ],
     "deliveryDisclaimer": "Your order will be delivered within 24 hours. Delivery details will be communicated shortly.",
@@ -195,7 +202,8 @@ export const emptyConfigObj = {
             "crm": true,
             "settings": true,
             "reports": true,
-            "feedback": true
+            "feedback": true,
+            "inventory": false
         },
         "settingsConfig": {
             "taxes": false
@@ -204,7 +212,8 @@ export const emptyConfigObj = {
             "active": false,
             "smsForAppointments": false,
             "reminderBeforeDays": "1",
-            "reminderBeforeHrs": "1"
+            "reminderBeforeHrs": "1",
+            "showExpertAsSalon": false
         },
         "feedbackConfig": {
             "active": false,

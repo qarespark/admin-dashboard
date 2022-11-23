@@ -1,7 +1,7 @@
 import { Checkbox, MenuItem, Select } from '@material-ui/core';
 import Loader from 'components/modules/loader';
 import { emptyStoreObj, emptyLicenseObj, emptyStaffObj, emptyRoleObj, emptySMSconfigObj, emptyPaymentConfigObj, emptySToreCatalogObj, emptyConfigObj } from 'constants/emptyModel';
-import { getDateStrings, mergeObjWithoutDuplicates } from 'helpers/utils';
+import { deepMergeInnerDedupeArrays, getDateStrings, mergeArrayWithoutDuplicates } from 'helpers/utils';
 import { useAppDispatch } from 'hooks/useAppDispatch';
 import { useAppSelector } from 'hooks/useAppSelector';
 import React, { useEffect, useRef, useState } from 'react'
@@ -9,7 +9,7 @@ import { showError, showSuccess } from 'redux/actions';
 import { getBusinessTypes } from 'redux/selectors';
 import { createUpdatePaymentVendorConfig, createUpdateSMSConfig, getPaymentConfigByTenantAndStore, getSMSConfigByTenantId } from 'services/api/common';
 import { createUpdateRole, createUpdateStaff, createUpdateStaffRoleMapping, getStaffbyTenantIdStoreId } from 'services/api/staff';
-import { createUpdateStore, createUpdateStoreCatalog, createUpdateStoreLicense, getStoresByTenantId, getStoresConfigbyTenantIdStoreId } from 'services/api/store';
+import { createUpdateStore, createUpdateStoreCatalog, createUpdateStoreLicense, getStoreLicenbyTenantIdStoreId, getStoresByTenantId, getStoresConfigbyTenantIdStoreId } from 'services/api/store';
 import consoleLog from 'services/console';
 import GenericImages from '../genericImages';
 import ManifestConfig from '../manifestConfig';
@@ -162,11 +162,11 @@ function StoreDetails({ activeTenant, originalData, setOriginalData }) {
                     dispatch(showSuccess('Store updated succefully!'));
                 } else {
                     storeListCopy.push(storeRes);
-                    saveLicenseDetails(storeRes);
                     saveStoreToMongo(storeRes);
                     setSelectedStore(storeRes)
                     dispatch(showSuccess('Store created succefully!'));
                 }
+                saveLicenseDetails(storeRes);
                 setOriginalData({ ...originalData, storeDetails: storeRes })
                 setStoresList(storeListCopy)
                 setActiveStore(storeRes);
@@ -188,13 +188,16 @@ function StoreDetails({ activeTenant, originalData, setOriginalData }) {
     }
 
     const saveLicenseDetails = (updatedStore: any) => {
-        const licObj = emptyLicenseObj;
-        licObj.tenantId = updatedStore.tenantId;
-        licObj.storeId = updatedStore.id;
-        licObj.validTill = updatedStore.validTill;
-        consoleLog('licObj', licObj)
-        createUpdateStoreLicense(licObj).then((licRes) => {
-            consoleLog('License created', licRes)
+        getStoreLicenbyTenantIdStoreId(updatedStore.tenantId, updatedStore.id).then((res: any) => {
+            let licObj = emptyLicenseObj;
+            licObj.tenantId = updatedStore.tenantId;
+            licObj.storeId = updatedStore.id;
+            if (res && res.length != 0) {
+                licObj = res[0];
+            }
+            licObj.validTill = updatedStore.validTill;
+            createUpdateStoreLicense(licObj).then((licRes) => {
+            })
         })
     }
 
@@ -376,7 +379,9 @@ function StoreDetails({ activeTenant, originalData, setOriginalData }) {
                             }
                             //social links
                             if (!config.socialLinks) config.socialLinks = []
-                            config.socialLinks = mergeObjWithoutDuplicates(emptyConfigObj.socialLinks, config.socialLinks);
+                            // config.socialLinks = mergeArrayWithoutDuplicates(emptyConfigObj.socialLinks, config.socialLinks);
+                            config = deepMergeInnerDedupeArrays(config, emptyConfigObj);
+                            console.log(config)
                             setActiveConfigurations(config);
                             setActiveTab(tab);
                             setIsLoading(false)
@@ -769,7 +774,7 @@ function StoreDetails({ activeTenant, originalData, setOriginalData }) {
                                             <input className={`${error.id == 'staff-firstName' ? 'error ' : ''}`}
                                                 autoComplete="off"
                                                 type="text"
-                                                value={activeAdminStaff.firstName || ''}
+                                                value={activeAdminStaff?.firstName || ''}
                                                 onChange={(e) => onChangeInput('firstName', e.target.value)}
                                                 placeholder="Enter staff first name*"
                                             />
