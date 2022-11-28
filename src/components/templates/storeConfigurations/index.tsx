@@ -582,7 +582,7 @@ const StoreConfigurations = forwardRef((props: any, ref: any) => {
                         </div>
 
                         <div className={`element-group-wrap clearfix card ${!appointmentConfig.active && 'disabled'}`}>
-                            <div className='element-group card config-input-wrap'>
+                            <div className='element-group card config-input-wrap' style={{ width: '50%' }}>
                                 <div className="checkbox-input-wrapper">
                                     <div className="checkbox-input-wrap ckeckbox-wrap">
                                         <Checkbox

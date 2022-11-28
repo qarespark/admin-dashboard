@@ -127,8 +127,8 @@ export const emptyConfigObj = {
     "storeId": 0,
     "tenantId": 0,
     "minOrderValue": 0.0,
-    "startTime": "00:00",
-    "closureTime": "00:0",
+    "startTime": "06:00",
+    "closureTime": "22:00",
     "weeklyOff": "",
     "orderingOn": false,
     "deliveryOn": false,
@@ -216,10 +216,10 @@ export const emptyConfigObj = {
             "showExpertAsSalon": false
         },
         "feedbackConfig": {
-            "active": false,
+            "active": true,
             "entities": "experts,store",
             "feedbackUrl": null,
-            "smsOn": false,
+            "smsOn": true,
             "emailOn": false,
             "typeList": [
                 {
@@ -228,39 +228,39 @@ export const emptyConfigObj = {
                     "description": "gsfgs",
                     "entity": "expert",
                     "canComment": false,
-                    "optional": false,
-                    "mandatory": false,
-                    "active": false,
+                    "optional": true,
+                    "mandatory": true,
+                    "active": true,
                     "typeOptions": [
                         {
                             "name": "Poor",
                             "value": 1,
                             "index": 1,
-                            "active": false
+                            "active": true
                         },
                         {
                             "name": "Below Average",
                             "value": 2,
                             "index": 2,
-                            "active": false
+                            "active": true
                         },
                         {
                             "name": "Average",
                             "value": 3,
                             "index": 3,
-                            "active": false
+                            "active": true
                         },
                         {
                             "name": "Good",
                             "value": 4,
                             "index": 4,
-                            "active": false
+                            "active": true
                         },
                         {
                             "name": "Excellent",
                             "value": 5,
                             "index": 5,
-                            "active": false
+                            "active": true
                         }
                     ]
                 },
@@ -270,81 +270,81 @@ export const emptyConfigObj = {
                     "description": "gsfgs",
                     "entity": "expert",
                     "canComment": false,
-                    "optional": false,
-                    "mandatory": false,
-                    "active": false,
+                    "optional": true,
+                    "mandatory": true,
+                    "active": true,
                     "typeOptions": [
                         {
                             "name": "Poor",
                             "value": 1,
                             "index": 1,
-                            "active": false
+                            "active": true
                         },
                         {
                             "name": "Below Average",
                             "value": 2,
                             "index": 2,
-                            "active": false
+                            "active": true
                         },
                         {
                             "name": "Average",
                             "value": 3,
                             "index": 3,
-                            "active": false
+                            "active": true
                         },
                         {
                             "name": "Good",
                             "value": 4,
                             "index": 4,
-                            "active": false
+                            "active": true
                         },
                         {
                             "name": "Excellent",
                             "value": 5,
                             "index": 5,
-                            "active": false
+                            "active": true
                         }
                     ]
                 },
                 {
-                    "name": "Personal",
+                    "name": "Personal Hygiene",
                     "index": 3,
                     "description": "gsfgs",
                     "entity": "expert",
                     "canComment": false,
-                    "optional": false,
-                    "mandatory": false,
-                    "active": false,
+                    "optional": true,
+                    "mandatory": true,
+                    "active": true,
                     "typeOptions": [
                         {
                             "name": "Poor",
                             "value": 1,
                             "index": 1,
-                            "active": false
+                            "active": true
                         },
                         {
                             "name": "Below Average",
                             "value": 2,
                             "index": 2,
-                            "active": false
+                            "active": true
                         },
                         {
                             "name": "Average",
                             "value": 3,
                             "index": 3,
-                            "active": false
+                            "active": true
                         },
                         {
                             "name": "Good",
                             "value": 4,
                             "index": 4,
-                            "active": false
+                            "active": true
                         },
                         {
                             "name": "Excellent",
                             "value": 5,
                             "index": 5,
-                            "active": false
+                            "active": true
                         }
                     ]
                 },
@@ -353,10 +353,10 @@ export const emptyConfigObj = {
                     "index": 4,
                     "description": "gsfgs",
                     "entity": "store",
-                    "canComment": false,
+                    "canComment": true,
                     "optional": false,
                     "mandatory": false,
-                    "active": false,
+                    "active": true,
                     "typeOptions": []
                 }
             ]
